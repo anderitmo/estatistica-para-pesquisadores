@@ -41,7 +41,7 @@
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+      <pre><code>%%R
 val <- c(2.8, 5.1, 3.9, 5.0, 5.9, 5.8, 2.2, 5.4, 4.1, 2.3, 2.5, 1.2, 5.5, 5.2, 4.7, 4.5, 4.6)
 grupo <- factor(c(rep('A',6), rep('B',6), rep('C',5)))
 fit <- aov(val ~ grupo)
