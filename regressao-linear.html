@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Estima intercepto, inclinação, R² e a significância do coeficiente.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Permite previsão e quantifica o efeito de X sobre Y.</p></div>
-        <div><h4>Exemplo simples</h4><p>Prever vendas (Y) a partir do investimento em anúncios (X).</p></div>
+        <div><h4>Exemplo simples</h4><p>Ajuste de modelo de regressão linear simples Y = a + bX via mínimos quadrados (Louzada et al., 2026, Cap. 8, p. 224). Pares X,Y: (2, 25), (4, 30), (6, 35), (8, 40). Equação: Y = 20 + 2.5·X.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,16 @@
       <h3>Quando usar</h3>
       <p>Relação linear entre duas quantitativas; resíduos bem-comportados.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise de Regressão — Regressão linear simples (p. 189–200).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(2, 4, 6, 8)
+y <- c(25, 30, 35, 40)
+mod <- lm(y ~ x)
+summary(mod)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

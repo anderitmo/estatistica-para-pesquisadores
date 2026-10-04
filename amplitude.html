@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Subtrai o menor valor do maior.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Medida de dispersão mais simples; útil em controle de qualidade e como visão rápida da extensão dos dados.</p></div>
-        <div><h4>Exemplo simples</h4><p>Em 4 e 42, a amplitude é 38.</p></div>
+        <div><h4>Exemplo simples</h4><p>Pesos ao nascer dos suínos (Louzada et al., 2026, p. 71): Mínimo = 1,35 kg, Máximo = 1,90 kg. Amplitude = 1,90 - 1,35 = 0,55 kg.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Visão rápida da variação; sensível a outliers (use com cautela).</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Medidas de Posição e Variabilidade (p. 55–67).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(1.850, 1.900, 1.350, 1.750, 1.700, 1.500, 1.650, 1.700)
+diff(range(x))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

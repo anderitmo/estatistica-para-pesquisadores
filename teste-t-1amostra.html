@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Compara a média amostral a μ₀ e retorna t, gl, p-valor e decisão.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Teste paramétrico clássico para uma média com σ desconhecido.</p></div>
-        <div><h4>Exemplo simples</h4><p>A produção média difere do alvo de 5,0 kg?</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste t para verificar se o peso médio ao nascer de uma amostra de bebês difere de μ₀ = 2.1 kg ao nível de 5% de significância (Louzada et al., 2026, p. 141).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Uma amostra, variável quantitativa aproximadamente normal.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Estimação de Parâmetros (p. 116–123) e Cap. Testes de Hipóteses (p. 131–137).<br>• Sukamolson, S. (2007). Fundamentals of quantitative research. <em>Language Institute, Chulalongkorn University</em>, 1–20.</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(2.15, 2.20, 2.05, 2.30, 2.25, 2.10, 2.18, 2.22)
+t.test(x, mu=2.1, alternative='two.sided')</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula χ², gl, p-valor, V de Cramér e tabelas de esperados, resíduos e contribuição. Suporta correção de Yates em 2×2.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Teste fundamental para dados categóricos; mede associação e ajuste a frequências esperadas.</p></div>
-        <div><h4>Exemplo simples</h4><p>Há associação entre sexo e preferência de produto em uma tabela 2×2?</p></div>
+        <div><h4>Exemplo simples</h4><p>Avaliação da associação entre o status do cliente (bom vs ruim pagador) e a existência de conta corrente (Louzada et al., 2026, p. 63). Tabela 2x2: [18, 12; 7, 23].</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,12 +31,19 @@
       <h3>Quando usar</h3>
       <p>Variáveis categóricas; frequências esperadas idealmente ≥ 5 por célula.</p>
       <h3>Referências</h3>
-      <p class="refs">• Pearson, K. (1900). On the criterion that a given system of deviations... <em>Philosophical Magazine</em>, 50(302), 157–175.<br>• Agresti, A. (2018). <em>Statistical Methods for the Social Sciences</em> (5ª ed.). Pearson.<br>• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Testes de Hipóteses — Aderência (p. 164–170).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
     </section>
     <section class="card flow-note">
       <h3>Calculadoras relacionadas e fluxo de dados</h3>
       <p>Estas calculadoras se conectam a esta — para preparar dados de entrada ou aprofundar a análise:</p>
       <ul class="flow-list"><li><a href="epidemiologia-2x2.html">Epidemiologia 2x2</a> — para tabelas 2×2, obtenha também RR, OR e métricas diagnósticas</li></ul>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+tab <- matrix(c(18, 12, 7, 23), nrow=2, byrow=TRUE)
+chisq.test(tab, correct=FALSE)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Raiz quadrada da variância amostral (denominador n−1).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Medida de dispersão na mesma unidade dos dados; central em IC, testes e escores padronizados (z).</p></div>
-        <div><h4>Exemplo simples</h4><p>Dados muito próximos da média → s pequeno; muito espalhados → s grande.</p></div>
+        <div><h4>Exemplo simples</h4><p>Pesos de 10 ratos de laboratório (em gramas): 241; 228; 126; 259; 206; 201; 233; 151; 197; 165 (Louzada et al., 2026, Exemplo p. 64). O desvio padrão é 41,27 g.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Variáveis quantitativas aproximadamente simétricas; comparar variabilidade entre grupos de mesma escala.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Medidas de Posição e Variabilidade (p. 55–67).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(241, 228, 126, 259, 206, 201, 233, 151, 197, 165)
+sd(x)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

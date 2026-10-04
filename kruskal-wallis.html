@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Compara três ou mais grupos independentes por postos.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Estende Mann-Whitney para múltiplos grupos sem supor normalidade.</p></div>
-        <div><h4>Exemplo simples</h4><p>Satisfação (escala ordinal) em três lojas diferentes.</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste de Kruskal-Wallis para comparação de 3 grupos independentes não normais.</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,15 @@
       <p>≥3 grupos independentes, dados ordinais ou não normais.</p>
       <h3>Referências</h3>
       <p class="refs">• Kruskal, W. H., & Wallis, W. A. (1952). Use of ranks in one-criterion variance analysis. <em>JASA</em>, 47(260), 583–621.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+g1 <- c(1, 2, 3)
+g2 <- c(4, 5, 6)
+g3 <- c(7, 8, 9)
+kruskal.test(list(g1, g2, g3))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula o escore Z, p-valores e intervalos de confiança (incluindo o método Wilson Score para uma amostra) para proporções.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Permite testar e comparar taxas de prevalência, incidência de desfechos clínicos, proporções de mercado ou de intenção de voto em dados categóricos dicotômicos.</p></div>
-        <div><h4>Exemplo simples</h4><p>Verificar se a proporção de eleitores favoráveis a um projeto difere da hipótese nula de 50%.</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste de proporção populacional baseada em amostra de n = 100 com x = 8 homens daltônicos contra a referência p₀ = 0.08 (8%) (Louzada et al., 2026, Ex. 5, p. 131).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,13 @@
       <h3>Quando usar</h3>
       <p>Dados dicotômicos (sucesso/fracasso) em amostras representativas com tamanho razoavelmente grande (onde n·p ≥ 5 e n·(1-p) ≥ 5).</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Testes de Hipóteses (p. 149–155).<br>• IJMRA. (2023). An Overview of Quantitative Research Methods. <em>International Journal of Multidisciplinary Research and Analysis</em>, 06(08), 3794–3803.</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+prop.test(x=8, n=100, p=0.08, correct=FALSE)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

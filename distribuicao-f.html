@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula probabilidades acumuladas e na cauda para F com gl₁ e gl₂.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Compara variâncias e sustenta o teste F da ANOVA e da regressão.</p></div>
-        <div><h4>Exemplo simples</h4><p>Com gl 3 e 16, P(F ≤ 3,24) ≈ 0,95.</p></div>
+        <div><h4>Exemplo simples</h4><p>Cálculo de probabilidade na distribuição F de Snedecor com gl1 = 3, gl2 = 16 e F = 3,24 (Louzada et al., 2026, p. 287).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,13 @@
       <h3>Quando usar</h3>
       <p>ANOVA, comparação de variâncias e significância global de modelos.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise de Regressão — ANOVA da Regressão (p. 197–199).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+pf(3.24, df1=3, df2=16)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

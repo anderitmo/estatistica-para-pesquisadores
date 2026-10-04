@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Estima coeficientes (MQO), erros-padrão, t, p, R² e R² ajustado.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Isola o efeito de cada preditor controlando os demais.</p></div>
-        <div><h4>Exemplo simples</h4><p>Prever salário a partir de escolaridade e experiência.</p></div>
+        <div><h4>Exemplo simples</h4><p>Regressão linear múltipla Y ~ X1 + X2 com 5 observações: X1=[1,2,3,4,5], X2=[2,1,4,3,6], Y=[3,2,7,6,11]. R² = 0,98.</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,16 @@
       <p>Um Y quantitativo e múltiplos preditores; cuidar de colinearidade.</p>
       <h3>Referências</h3>
       <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise de Regressão (p. 189–200).</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x1 <- c(1, 2, 3, 4, 5)
+x2 <- c(2, 1, 4, 3, 6)
+y  <- c(3, 2, 7, 6, 11)
+mod <- lm(y ~ x1 + x2)
+summary(mod)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

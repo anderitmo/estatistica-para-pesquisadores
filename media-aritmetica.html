@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Soma todos os valores e divide pela quantidade de observações.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>É a base de inúmeras técnicas (variância, regressão, testes t). Resume um conjunto em um único valor representativo quando os dados são aproximadamente simétricos.</p></div>
-        <div><h4>Exemplo simples</h4><p>Notas 7, 8 e 9 → média (7+8+9)/3 = 8.</p></div>
+        <div><h4>Exemplo simples</h4><p>Pesos ao nascer de 8 suínos Landrace: 1,85; 1,90; 1,35; 1,75; 1,70; 1,50; 1,65; 1,70 kg (Louzada et al., 2026, Ex. 27, p. 71). A média é 1,675 kg.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Dados quantitativos sem valores extremos dominantes. Com forte assimetria/outliers, prefira a mediana.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Medidas de Posição e Variabilidade (p. 49–55).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(1.850, 1.900, 1.350, 1.750, 1.700, 1.500, 1.650, 1.700)
+mean(x)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

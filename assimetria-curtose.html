@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Coeficientes amostrais de Fisher-Pearson (equivalentes a SKEW/KURT do Excel).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Diagnosticam afastamentos da normalidade, orientando a escolha de testes e transformações.</p></div>
-        <div><h4>Exemplo simples</h4><p>Assimetria > 0 → cauda à direita; curtose > 0 → mais pontuda que a normal.</p></div>
+        <div><h4>Exemplo simples</h4><p>Percentual de ingressantes da escola pública (Louzada et al., 2026, p. 68). Avalia o grau de assimetria e o achatamento (curtose) da distribuição dos dados.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,16 @@
       <h3>Quando usar</h3>
       <p>Verificação de pressupostos de normalidade e descrição da forma distribucional.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise Exploratória de Dados (p. 29–48).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(45.8, 45.4, 41.1, 37.2, 38.3, 33.6, 33.1, 34.07, 32.14, 31.83, 27.91, 27.17)
+# Para assimetria e curtose no R, pode-se usar o pacote e1071:
+# e1071::skewness(x)
+# e1071::kurtosis(x)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

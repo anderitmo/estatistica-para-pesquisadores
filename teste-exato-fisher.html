@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula a probabilidade exata hipergeométrica de obter a tabela de contingência 2x2 observada sob a hipótese nula de independência.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Fornece p-valores estatísticos exatos, superando a aproximação assintótica do teste de Qui-Quadrado de independência, que falha gravemente quando as contagens em células são menores que 5.</p></div>
-        <div><h4>Exemplo simples</h4><p>Verificar a associação entre o tratamento de saúde e a cura em uma amostra de apenas 12 pacientes.</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste de independência para tabela de contingência 2x2 com frequências observadas pequenas a = 2, b = 8, c = 9, d = 3.</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,13 @@
       <p>Tabelas de contingência 2x2 com amostras pequenas, onde uma ou mais células possuem frequências esperadas menores que 5.</p>
       <h3>Referências</h3>
       <p class="refs">• Fisher, R. A. (1922). On the interpretation of chi-square from contingency tables, and the calculation of P. <em>Journal of the Royal Statistical Society</em>, 85, 87-94.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+tab <- matrix(c(2, 8, 9, 3), nrow=2, byrow=TRUE)
+fisher.test(tab)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

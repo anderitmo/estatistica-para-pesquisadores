@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula a métrica d de Cohen para testes t (uma amostra, duas amostras ou pareado) e a métrica Eta-quadrado (η²) para análises de variância (ANOVA).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>A significância prática (tamanho de efeito) é considerada um complemento ético e metodológico essencial ao p-valor para demonstrar a relevância real das descobertas.</p></div>
-        <div><h4>Exemplo simples</h4><p>Avaliar se a eficácia de um novo medicamento contra placebo apresenta uma relevância clínica real expressiva (ex: d = 0,8).</p></div>
+        <div><h4>Exemplo simples</h4><p>Métrica d de Cohen para comparação de 2 amostras independentes (M1=15, DP1=3, n1=30 vs M2=12, DP2=4, n2=30). d = 0.85 (efeito grande).</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,13 @@
       <p>Sempre que reportar resultados de testes de significância (testes t e ANOVA) para embasar discussões científicas e de validade aplicada.</p>
       <h3>Referências</h3>
       <p class="refs">• Cohen, J. (1988). <em>Statistical Power Analysis for the Behavioral Sciences</em> (2ª ed.). Lawrence Erlbaum.<br>• IJMRA. (2023). An Overview of Quantitative Research Methods. <em>International Journal of Multidisciplinary Research and Analysis</em>, 06(08), 3794–3803.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# d de Cohen no R:
+# (m1 - m2) / sqrt(((sd1^2) + (sd2^2)) / 2)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

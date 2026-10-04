@@ -48,6 +48,7 @@
       ["epidemiologia-2x2","Epidemiologia 2x2"],["alfa-cronbach","Alfa de Cronbach"],
       ["gerador-aleatorios","Gerador de Números Aleatórios"],["tabela-normal","Tabela Normal (Z)"],
       ["conversor-dados","Conversor de Dados"],["teste-normalidade","Teste de Normalidade"],
+      ["instrucoes-r-colab","Tutorial R no Colab"],
     ]],
   ];
   global.GROUPS = GROUPS;

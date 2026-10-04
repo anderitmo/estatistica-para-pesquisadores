@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Agrupa os dados em classes e calcula frequência absoluta, relativa e acumulada.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Primeiro passo da análise exploratória; condensa grandes conjuntos em estrutura interpretável.</p></div>
-        <div><h4>Exemplo simples</h4><p>Notas de 0 a 100 em 5 classes mostram onde os valores se concentram.</p></div>
+        <div><h4>Exemplo simples</h4><p>Amostra de pesos de 80 ratos de laboratório divididos em classes de frequência (Louzada et al., 2026, p. 64-65).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Dados quantitativos contínuos que precisam ser resumidos antes de gráficos e medidas.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise Exploratória de Dados — Tabelas (p. 30–35).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(241, 228, 126, 259, 206, 201, 233, 151, 197, 165)
+table(cut(x, breaks=4))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

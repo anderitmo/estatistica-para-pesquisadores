@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Converte x em escore z e calcula P(X ≤ x), P(X ≥ x) e a densidade.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Modelo central da inferência (Teorema Central do Limite); base de IC e testes.</p></div>
-        <div><h4>Exemplo simples</h4><p>Em N(0,1), P(Z ≤ 1,96) ≈ 0,975.</p></div>
+        <div><h4>Exemplo simples</h4><p>Estatura de recrutas com média μ = 172 cm e desvio padrão σ = 5 cm (Louzada et al., 2026, p. 53). Probabilidade de altura superior a 190 cm é P(X > 190) = 0,0002 (0,02%).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Fenômenos aproximadamente normais e cálculo de probabilidades/áreas sob a curva.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Binomial, Poisson e Normal (p. 96–110).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# P(X > 190) com mu=172 e sigma=5
+1 - pnorm(190, mean=172, sd=5)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

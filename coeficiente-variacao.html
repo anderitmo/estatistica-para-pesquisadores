@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Razão entre desvio padrão e média, em porcentagem.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Permite comparar variabilidade entre grupos de unidades ou escalas diferentes.</p></div>
-        <div><h4>Exemplo simples</h4><p>CV de 5% indica baixa dispersão relativa; 40%, alta.</p></div>
+        <div><h4>Exemplo simples</h4><p>Pesos de ratos de laboratório (Louzada et al., 2026, p. 64): média = 200,7 g, desvio padrão = 41,27 g. CV = (41,27 / 200,7) * 100 = 20,56%.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Comparar dispersão de variáveis com médias ou unidades distintas. Evite quando a média é próxima de zero.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Medidas de Posição e Variabilidade (p. 55–67).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(241, 228, 126, 259, 206, 201, 233, 151, 197, 165)
+(sd(x) / mean(x)) * 100</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>
