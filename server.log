@@ -1,22 +1,27 @@
-127.0.0.1 - - [04/Oct/2026 04:43:47] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /media-aritmetica.html HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /css/estilo.css HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /js/utils.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] code 404, message File not found
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /js/vendor/jstat.min.js HTTP/1.1" 404 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /js/app.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /js/stats.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /js/calculators.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:10] "GET /js/stats_extra.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:46:14] "GET /instrucoes-r-colab.html HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /media-aritmetica.html HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/stats.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/calculators.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /css/estilo.css HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/stats_extra.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] code 404, message File not found
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/vendor/jstat.min.js HTTP/1.1" 404 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/utils.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/app.js HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:43] "GET /instrucoes-r-colab.html HTTP/1.1" 200 -
-127.0.0.1 - - [04/Oct/2026 04:50:43] "GET /js/calculators.js HTTP/1.1" 304 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /media-aritmetica.html HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /css/estilo.css HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /js/utils.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /js/stats_extra.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /js/stats.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] code 404, message File not found
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /js/vendor/jstat.min.js HTTP/1.1" 404 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /js/calculators.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:02] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /media-aritmetica.html HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /js/calculators.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] code 404, message File not found
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /js/vendor/jstat.min.js HTTP/1.1" 404 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /js/utils.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /css/estilo.css HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /js/stats.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /js/stats_extra.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:08:28] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /media-aritmetica.html HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /js/stats.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /js/stats_extra.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] code 404, message File not found
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /js/vendor/jstat.min.js HTTP/1.1" 404 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /css/estilo.css HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /js/utils.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /js/calculators.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Oct/2026 05:11:05] "GET /js/app.js HTTP/1.1" 200 -
