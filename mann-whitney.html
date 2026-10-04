@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Compara dois grupos independentes por postos (aproximação normal com empates).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Avalia diferença de distribuições sem supor normalidade.</p></div>
-        <div><h4>Exemplo simples</h4><p>Tempos de recuperação de dois tratamentos, sem normalidade.</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste U de Mann-Whitney para duas amostras independentes não normais.</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,14 @@
       <p>Dois grupos independentes, dados ordinais ou não normais.</p>
       <h3>Referências</h3>
       <p class="refs">• Mann, H. B., & Whitney, D. R. (1947). On a test of whether one of two random variables is stochastically larger. <em>Annals of Mathematical Statistics</em>, 18(1), 50–60.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(1, 2, 3, 4, 5)
+y <- c(6, 7, 8, 9, 10)
+wilcox.test(x, y, paired=FALSE)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

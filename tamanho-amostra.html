@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula o n mínimo para a margem de erro e a confiança escolhidas.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Planejamento amostral: equilibra precisão e custo antes da coleta.</p></div>
-        <div><h4>Exemplo simples</h4><p>Para E=0,5, σ=2 e 95%, n ≈ 62.</p></div>
+        <div><h4>Exemplo simples</h4><p>Cálculo do tamanho mínimo de amostra para estimar o peso médio ao nascer de bebês com erro máximo de E = 0.5 kg, desvio padrão estimado σ = 2.0 kg e confiança de 95% (Louzada et al., 2026, p. 137). O tamanho mínimo n é 62.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,15 @@
       <h3>Quando usar</h3>
       <p>Dimensionar amostras para estimar uma média (σ conhecido/estimado).</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Estimação de Parâmetros — Erro e Tamanho (p. 123–130).<br>• IJMRA. (2023). An Overview of Quantitative Research Methods. <em>International Journal of Multidisciplinary Research and Analysis</em>, 06(08), 3794–3803.</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+E <- 0.5; sigma <- 2.0; z <- qnorm(0.975)
+n <- (z * sigma / E)^2
+cat('n mínimo:', ceiling(n), '\n')</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

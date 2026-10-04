@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Realiza o Teste F para verificar se duas amostras independentes possuem variâncias populacionais estatisticamente homogêneas.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>A homogeneidade de variâncias (homocedasticidade) é um pressuposto fundamental de testes paramétricos clássicos, como o teste t de Student para duas amostras independentes.</p></div>
-        <div><h4>Exemplo simples</h4><p>Verificar se a dispersão das notas do Grupo A é estatisticamente semelhante à do Grupo B antes de aplicar o teste t.</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste F para comparação das variâncias entre dois grupos de alturas de homens de duas localidades (Louzada et al., 2026, p. 171, 285). F = 3.24, p-valor = 0,2197.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,15 @@
       <h3>Quando usar</h3>
       <p>Para comparar a variabilidade de duas populações normais e independentes, ou como etapa preliminar ao teste t bilateral.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Testes de Hipóteses — duas amostras independentes (p. 149–155).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(145, 156, 187, 341, 231, 142, 153, 182)
+y <- c(321, 234, 323, 234, 122, 123, 312, 134)
+var.test(x, y)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

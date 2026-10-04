@@ -20,7 +20,7 @@
 
   /* =========================== DESCRITIVA =========================== */
   R["media-aritmetica"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 7; 8; 6; 9; 5; 7; 8; 6; 7; 9", hint: "Separe por ; espaço, tabulação ou quebra de linha." }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "1,85; 1,90; 1,35; 1,75; 1,70; 1,50; 1,65; 1,70", placeholder: "Ex.: 1,85; 1,90; 1,35; 1,75; 1,70; 1,50; 1,65; 1,70", hint: "Separe por ; espaço, tabulação ou quebra de linha." }],
     compute: function (v) {
       var d = v.dados; need(d, 1);
       var stats = [["Média", f(Stats.mean(d))], ["Soma", f(Stats.sum(d))], ["Quantidade (n)", String(d.length)]];
@@ -28,7 +28,7 @@
     }
   };
   R["mediana"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 7; 8; 6; 9; 5" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "41; 34; 41; 44; 41; 37; 40", placeholder: "Ex.: 41; 34; 41; 44; 41; 37; 40" }],
     compute: function (v) {
       var d = v.dados; need(d, 1);
       var stats = [["Mediana", f(Stats.median(d))], ["n", String(d.length)], ["Mínimo", f(Math.min.apply(null, d))], ["Máximo", f(Math.max.apply(null, d))]];
@@ -36,7 +36,7 @@
     }
   };
   R["moda"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 2; 3; 3; 4; 4; 4; 5" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "41; 34; 41; 44; 41; 37; 40", placeholder: "Ex.: 41; 34; 41; 44; 41; 37; 40" }],
     compute: function (v) {
       var d = v.dados; need(d, 1);
       var m = Stats.mode(d);
@@ -47,7 +47,7 @@
     }
   };
   R["desvio-padrao"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 7; 8; 6; 9; 5" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "241; 228; 126; 259; 206; 201; 233; 151; 197; 165", placeholder: "Ex.: 241; 228; 126; 259; 206" }],
     compute: function (v) {
       var d = v.dados; need(d, 2);
       var stats = [
@@ -60,7 +60,7 @@
     }
   };
   R["variancia"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 7; 8; 6; 9; 5" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "241; 228; 126; 259; 206; 201; 233; 151; 197; 165", placeholder: "Ex.: 241; 228; 126; 259; 206" }],
     compute: function (v) {
       var d = v.dados; need(d, 2);
       var stats = [
@@ -73,7 +73,7 @@
     }
   };
   R["quartis"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "45,8; 45,4; 41,1; 37,2; 38,3; 33,6; 33,1; 34,07; 32,14; 31,83; 27,91; 27,17", placeholder: "Ex.: 45,8; 45,4; 41,1; 37,2" }],
     compute: function (v) {
       var d = v.dados; need(d, 1);
       var q = Stats.quartiles(d);
@@ -85,7 +85,7 @@
     }
   };
   R["amplitude"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 4; 8; 15; 16; 23; 42" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "1,85; 1,90; 1,35; 1,75; 1,70; 1,50; 1,65; 1,70", placeholder: "Ex.: 1,85; 1,90; 1,35" }],
     compute: function (v) {
       var d = v.dados; need(d, 1);
       var stats = [["Amplitude", f(Stats.range(d))], ["Mínimo", f(Math.min.apply(null, d))], ["Máximo", f(Math.max.apply(null, d))], ["n", String(d.length)]];
@@ -93,7 +93,7 @@
     }
   };
   R["coeficiente-variacao"] = {
-    inputs: [{ id: "dados", label: "Números", type: "numbers", placeholder: "Ex.: 10; 12; 9; 11; 13" }],
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "241; 228; 126; 259; 206; 201; 233; 151; 197; 165", placeholder: "Ex.: 241; 228; 126; 259; 206" }],
     compute: function (v) {
       var d = v.dados; need(d, 2);
       var cv = Stats.cv(d, false);
@@ -271,7 +271,7 @@
   /* =========================== INFERÊNCIA =========================== */
   R["intervalo-confianca-media"] = {
     inputs: [
-      { id: "dados", label: "Amostra", type: "numbers", placeholder: "Ex.: 9,5; 10,1; 9,8; 10,3" },
+      { id: "dados", label: "Amostra", type: "numbers", default: "27,56; 27,04; 28,64; 26,14; 27,25; 27,85; 28,00; 27,75; 29,30", placeholder: "Ex.: 27,56; 27,04; 28,64; 26,14" },
       { id: "conf", label: "Nível de confiança", type: "select", default: "0.95", options: [["0.90", "90%"], ["0.95", "95%"], ["0.99", "99%"]] },
     ],
     compute: function (v) {
@@ -284,7 +284,7 @@
   R["tamanho-amostra"] = {
     inputs: [
       { id: "E", label: "Margem de erro (E)", type: "number", default: "0.5" },
-      { id: "sigma", label: "Desvio padrão estimado (σ)", type: "number", default: "2" },
+      { id: "sigma", label: "Desvio padrão estimado (σ)", type: "number", default: "2.0" },
       { id: "conf", label: "Nível de confiança", type: "select", default: "0.95", options: [["0.90", "90%"], ["0.95", "95%"], ["0.99", "99%"]] },
     ],
     compute: function (v) {
@@ -296,8 +296,8 @@
   };
   R["teste-t-1amostra"] = {
     inputs: [
-      { id: "dados", label: "Amostra", type: "numbers", placeholder: "Ex.: 5,1; 4,9; 5,2; 5,0" },
-      { id: "mu0", label: "Valor de referência (μ₀)", type: "number", default: "5" },
+      { id: "dados", label: "Amostra", type: "numbers", default: "2,15; 2,20; 2,05; 2,30; 2,25; 2,10; 2,18; 2,22", placeholder: "Ex.: 2,15; 2,20; 2,05; 2,30" },
+      { id: "mu0", label: "Valor de referência (μ₀)", type: "number", default: "2,1" },
       { id: "alfa", label: "Significância (α)", type: "select", default: "0.05", options: [["0.10", "0,10"], ["0.05", "0,05"], ["0.01", "0,01"]] },
     ],
     compute: function (v) {
@@ -309,8 +309,8 @@
   };
   R["teste-t-2amostras"] = {
     inputs: [
-      { id: "a", label: "Amostra 1", type: "numbers", placeholder: "Ex.: 23; 25; 21; 24" },
-      { id: "b", label: "Amostra 2", type: "numbers", placeholder: "Ex.: 28; 30; 27; 29" },
+      { id: "a", label: "Amostra 1", type: "numbers", default: "145; 156; 187; 341; 231; 142; 153; 182", placeholder: "Ex.: 145; 156; 187; 341" },
+      { id: "b", label: "Amostra 2", type: "numbers", default: "321; 234; 323; 234; 122; 123; 312; 134", placeholder: "Ex.: 321; 234; 323; 234" },
       { id: "tipo", label: "Variâncias", type: "select", default: "welch", options: [["welch", "Não assumir iguais (Welch)"], ["pooled", "Assumir iguais (agrupada)"]] },
       { id: "alfa", label: "Significância (α)", type: "select", default: "0.05", options: [["0.10", "0,10"], ["0.05", "0,05"], ["0.01", "0,01"]] },
     ],
@@ -323,7 +323,7 @@
   };
   R["teste-t-pareado"] = {
     inputs: [
-      { id: "pares", label: "Pares (antes; depois por linha)", type: "matrix", placeholder: "200; 195\n212; 205\n190; 185", hint: "Uma linha por par: valor1 ; valor2." },
+      { id: "pares", label: "Pares (antes; depois por linha)", type: "matrix", default: "145; 321\n156; 234\n187; 323\n341; 234\n231; 122\n142; 123\n153; 312\n182; 134", placeholder: "145; 321\n156; 234", hint: "Uma linha por par: valor1 ; valor2." },
       { id: "alfa", label: "Significância (α)", type: "select", default: "0.05", options: [["0.10", "0,10"], ["0.05", "0,05"], ["0.01", "0,01"]] },
     ],
     compute: function (v) {
@@ -373,7 +373,7 @@
     }
   };
   R["anova"] = {
-    inputs: [{ id: "grupos", label: "Grupos (um por linha)", type: "groups", placeholder: "6; 8; 4; 5; 3; 4\n8; 12; 9; 11; 6; 8\n13; 9; 11; 8; 7; 12", hint: "Cada linha é um grupo; valores por ; espaço ou tab." },
+    inputs: [{ id: "grupos", label: "Grupos (um por linha)", type: "groups", default: "2,8; 5,1; 3,9; 5,0; 5,9; 5,8\n2,2; 5,4; 4,1; 2,3; 2,5; 1,2\n5,5; 5,2; 4,7; 4,5; 4,6", placeholder: "2,8; 5,1; 3,9; 5,0; 5,9; 5,8\n2,2; 5,4; 4,1; 2,3; 2,5; 1,2\n5,5; 5,2; 4,7; 4,5; 4,6", hint: "Cada linha é um grupo; valores por ; espaço ou tab." },
       { id: "alfa", label: "Significância (α)", type: "select", default: "0.05", options: [["0.10", "0,10"], ["0.05", "0,05"], ["0.01", "0,01"]] }],
     compute: function (v) {
       var g = v.grupos.filter(function (x) { return x.length > 0; });
@@ -385,7 +385,7 @@
     }
   };
   R["correlacao-pearson"] = {
-    inputs: [{ id: "pares", label: "Pares X;Y (um por linha)", type: "matrix", placeholder: "1; 2\n2; 4\n3; 5\n4; 4\n5; 5" }],
+    inputs: [{ id: "pares", label: "Pares X;Y (um por linha)", type: "matrix", default: "2; 25\n4; 30\n6; 35\n8; 40", placeholder: "2; 25\n4; 30\n6; 35\n8; 40" }],
     compute: function (v) {
       var rows = v.pares.filter(function (r) { return r.length >= 2; });
       if (rows.length < 3) throw new Error("Informe ao menos 3 pares.");
@@ -397,7 +397,7 @@
     }
   };
   R["regressao-linear"] = {
-    inputs: [{ id: "pares", label: "Pares X;Y (um por linha)", type: "matrix", placeholder: "1; 2\n2; 4\n3; 5\n4; 4\n5; 5" }],
+    inputs: [{ id: "pares", label: "Pares X;Y (um por linha)", type: "matrix", default: "2; 25\n4; 30\n6; 35\n8; 40", placeholder: "2; 25\n4; 30\n6; 35\n8; 40" }],
     compute: function (v) {
       var rows = v.pares.filter(function (r) { return r.length >= 2; });
       if (rows.length < 3) throw new Error("Informe ao menos 3 pares.");

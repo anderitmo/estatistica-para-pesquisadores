@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Decompõe a variância e testa a igualdade das médias dos grupos.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Evita o acúmulo de erro de múltiplos testes t ao comparar vários grupos de uma vez.</p></div>
-        <div><h4>Exemplo simples</h4><p>Três métodos de ensino produzem médias diferentes?</p></div>
+        <div><h4>Exemplo simples</h4><p>Comparação das médias de 3 tratamentos agrícolas com 6 repetições (Louzada et al., 2026, Exercício 2, p. 215). Tratamento A: 2.8, 5.1, 3.9, 5.0, 5.9, 5.8; Tratamento B: 2.2, 5.4, 4.1, 2.3, 2.5, 1.2; Tratamento C: 5.5, 5.2, 4.7, 4.5, 4.6.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,12 +31,21 @@
       <h3>Quando usar</h3>
       <p>Um fator com ≥3 níveis; normalidade e homogeneidade de variâncias.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Testes de Hipóteses — 3 ou mais amostras (p. 159–164).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
     </section>
     <section class="card flow-note">
       <h3>Calculadoras relacionadas e fluxo de dados</h3>
       <p>Estas calculadoras se conectam a esta — para preparar dados de entrada ou aprofundar a análise:</p>
       <ul class="flow-list"><li><a href="kruskal-wallis.html">Kruskal-Wallis</a> — alternativa não paramétrica à ANOVA</li></ul>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+val <- c(2.8, 5.1, 3.9, 5.0, 5.9, 5.8, 2.2, 5.4, 4.1, 2.3, 2.5, 1.2, 5.5, 5.2, 4.7, 4.5, 4.6)
+grupo <- factor(c(rep('A',6), rep('B',6), rep('C',5)))
+fit <- aov(val ~ grupo)
+summary(fit)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

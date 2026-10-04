@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Ordena os valores e retorna o do meio (ou a média dos dois centrais).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Robusta a outliers e à assimetria; descreve melhor o 'típico' em distribuições não simétricas (renda, tempo).</p></div>
-        <div><h4>Exemplo simples</h4><p>Em 5, 7, 100 a mediana é 7 — não distorcida pelo 100.</p></div>
+        <div><h4>Exemplo simples</h4><p>Temperaturas registradas em Salvador: 41; 34; 41; 44; 41; 37; 40. Ordenados: 34; 37; 40; 41; 41; 41; 44. A mediana (posição central) é 41 (Louzada et al., 2026, Ex. 29, p. 77).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Distribuições assimétricas, presença de outliers ou variáveis ordinais.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Medidas de Posição e Variabilidade (p. 49–55).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(41, 34, 41, 44, 41, 37, 40)
+median(x)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

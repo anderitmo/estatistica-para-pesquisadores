@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>A partir de a, b, c, d calcula risco relativo, odds ratio, diferença de risco (com IC95%) e métricas diagnósticas.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Quantifica associação exposição-desfecho e validade de testes diagnósticos.</p></div>
-        <div><h4>Exemplo simples</h4><p>Tabela exposto/não exposto × doente/não doente: RR e OR com IC.</p></div>
+        <div><h4>Exemplo simples</h4><p>Tabela 2x2 com a = 20, b = 80, c = 10, d = 90. Risco Relativo = 2.0; Odds Ratio = 2.25.</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,14 @@
       <p>Estudos epidemiológicos e avaliação de testes diagnósticos (tabela 2×2).</p>
       <h3>Referências</h3>
       <p class="refs">• Rothman, K. J., Greenland, S., & Lash, T. L. (2008). <em>Modern Epidemiology</em> (3ª ed.). Lippincott Williams & Wilkins.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Tabela epidemiológica 2x2:
+tab <- matrix(c(20, 80, 10, 90), nrow=2, byrow=TRUE)
+chisq.test(tab)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

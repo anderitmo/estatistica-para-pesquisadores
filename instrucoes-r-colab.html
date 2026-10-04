@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como usar R no Google Colab — Estatística para Pesquisadores</title>
+<meta name="description" content="Guia passo a passo para executar scripts na linguagem R gratuitamente dentro do Google Colab usando rpy2.">
+<link rel="stylesheet" href="css/estilo.css">
+<style>
+.code-block {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  margin: 0.8rem 0;
+}
+.step-number {
+  display: inline-block;
+  background: var(--green-2);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+</style>
+</head>
+<body>
+<header class="page-header"><div class="wrap">
+  <p class="eyebrow"><a href="index.html">← Estatística para Pesquisadores</a></p>
+  <h1>Como usar R no Google Colab</h1>
+  <p class="subtitle">Aprenda a executar códigos em linguagem R de forma simples, gratuita e na nuvem usando o Google Colaboratory.</p>
+</div></header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <section class="card">
+      <h2>Por que usar o Google Colab para R?</h2>
+      <p>O <strong>Google Colab</strong> é um ambiente de notebooks interativos gratuito executado na nuvem da Google. Embora o padrão seja em Python, você pode utilizar a extensão mágica <code>rpy2</code> para executar a linguagem R de forma integrada e visual sem precisar instalar o R ou RStudio na sua máquina local.</p>
+    </section>
+
+    <section class="card">
+      <h2>Passo a Passo Interativo</h2>
+
+      <h3><span class="step-number">1</span>Acesse o Google Colab</h3>
+      <p>Acesse o site <a href="https://colab.research.google.com" target="_blank" rel="noopener">colab.research.google.com</a> e crie um <strong>Novo Notebook</strong> (Novo bloco de notas).</p>
+
+      <h3><span class="step-number">2</span>Carregue a extensão R no Notebook</h3>
+      <p>Na primeira célula de código do seu notebook, digite e execute o seguinte comando para habilitar a integração com R:</p>
+      <div class="code-block">%load_ext rpy2.ipython</div>
+      <p class="hint">Pressione <code>Shift + Enter</code> para executar a célula.</p>
+
+      <h3><span class="step-number">3</span>Execute comandos R em cada célula</h3>
+      <p>Para cada nova célula onde deseja rodar código R, insira o comando mágico <code>%%R</code> na primeira linha do bloco. Por exemplo:</p>
+      <div class="code-block">%%R
+# Exemplo do livro (Louzada et al., 2026): Pesos de suínos
+x <- c(1.850, 1.900, 1.350, 1.750, 1.700, 1.500, 1.650, 1.700)
+mean_val <- mean(x)
+cat("Peso médio ao nascer:", mean_val, "kg\n")</div>
+
+      <h3><span class="step-number">4</span>Gere gráficos e análises diretamente no navegador</h3>
+      <p>O Colab exibirá as saídas de texto e os gráficos gerados pelo R (como histogramas e boxplots) diretamente abaixo da célula de execução.</p>
+      <div class="code-block">%%R
+boxplot(x, col="lightblue", main="Boxplot dos Pesos dos Suínos", ylab="Peso (kg)")</div>
+    </section>
+
+    <section class="card">
+      <h2>Referência Bibliográfica</h2>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+  </main>
+</div>
+<footer class="page-footer">
+  <strong>Sem login e sem envio dos dados informados.</strong>
+  Todos os cálculos ocorrem no seu navegador (JavaScript).
+</footer>
+<script src="js/utils.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/stats_extra.js"></script>
+<script src="js/calculators.js"></script>
+<script src="js/app.js"></script>
+<script>App.renderSidebar('instrucoes-r-colab');</script>
+</body>
+</html>

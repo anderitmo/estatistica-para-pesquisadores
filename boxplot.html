@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Desenha caixa (Q1–Q3), mediana, hastes e pontos atípicos.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Compara distribuições e identifica outliers de forma compacta e robusta.</p></div>
-        <div><h4>Exemplo simples</h4><p>Valores além das hastes aparecem como pontos — candidatos a outliers.</p></div>
+        <div><h4>Exemplo simples</h4><p>Boxplot comparando o percentual de ingressantes de escolas públicas vs privadas (Louzada et al., 2026, Figura 3.9, p. 69).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Comparar grupos e detectar valores atípicos; complementa o histograma.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise Exploratória de Dados — Gráficos (p. 35–48).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+publica <- c(45.8, 45.4, 41.1, 37.2, 38.3, 33.6, 33.1, 34.07, 32.14, 31.83, 27.91, 27.17)
+boxplot(publica, col='darkblue', ylab='Percentual')</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

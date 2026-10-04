@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Compara médias de dois grupos; Welch por padrão (não exige variâncias iguais).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Avalia diferença entre dois grupos independentes — desenho experimental comum.</p></div>
-        <div><h4>Exemplo simples</h4><p>Tratamento vs. controle: as médias diferem?</p></div>
+        <div><h4>Exemplo simples</h4><p>Comparação das vendas de itens entre dois períodos distintos (grupo 1 vs grupo 2) (Louzada et al., 2026, Ex. 55, p. 176). Amostra 1: 145, 156, 187, 341, 231, 142, 153, 182; Amostra 2: 321, 234, 323, 234, 122, 123, 312, 134.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,15 @@
       <h3>Quando usar</h3>
       <p>Dois grupos independentes, dados aproximadamente normais.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Testes de Hipóteses — duas amostras independentes (p. 149–155).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(145, 156, 187, 341, 231, 142, 153, 182)
+y <- c(321, 234, 323, 234, 122, 123, 312, 134)
+t.test(x, y, paired=FALSE)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

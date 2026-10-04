@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Estima a média e a margem de erro pela distribuição t.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Expressa a incerteza da estimativa, indo além do valor pontual.</p></div>
-        <div><h4>Exemplo simples</h4><p>IC 95% de [9,7; 10,3] sugere a média populacional nessa faixa.</p></div>
+        <div><h4>Exemplo simples</h4><p>Temperaturas em fevereiro na cidade de Salvador (Louzada et al., 2026, Ex. 4, p. 131): 27.56, 27.04, 28.64, 26.14, 27.25, 27.85, 28.00, 27.75, 29.30 °C. O IC 95% para a média é [27.09; 28.36] °C.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Estimar a média com σ desconhecido a partir de amostra aleatória.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Estimação de Parâmetros — Intervalos de Confiança (p. 116–123).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(27.56, 27.04, 28.64, 26.14, 27.25, 27.85, 28.00, 27.75, 29.30)
+t.test(x, conf.level=0.95)$conf.int</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

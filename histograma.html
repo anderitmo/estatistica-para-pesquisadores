@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Constrói classes (Sturges por padrão) e desenha as frequências como barras.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Revela forma, centro, dispersão, assimetria e possíveis modas — leitura visual da distribuição.</p></div>
-        <div><h4>Exemplo simples</h4><p>Um histograma em sino sugere distribuição aproximadamente normal.</p></div>
+        <div><h4>Exemplo simples</h4><p>Histograma dos pesos de ratos em gramas (Louzada et al., 2026, Figura 3.5, p. 64-65).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,12 +31,19 @@
       <h3>Quando usar</h3>
       <p>Explorar a forma de variáveis contínuas e avaliar normalidade visualmente.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise Exploratória de Dados — Gráficos (p. 35–48).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
     </section>
     <section class="card flow-note">
       <h3>Calculadoras relacionadas e fluxo de dados</h3>
       <p>Estas calculadoras se conectam a esta — para preparar dados de entrada ou aprofundar a análise:</p>
       <ul class="flow-list"><li><a href="tabela-frequencias.html">Tabela de Frequências</a> — veja as mesmas classes em forma de tabela</li><li><a href="assimetria-curtose.html">Assimetria e Curtose</a> — quantifique a forma que o histograma sugere</li></ul>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(241, 228, 126, 259, 206, 201, 233, 151, 197, 165)
+hist(x, xlab='Peso (g)', ylab='Frequência absoluta', col='red')</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

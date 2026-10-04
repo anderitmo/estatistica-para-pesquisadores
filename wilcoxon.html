@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Compara duas medidas relacionadas por postos das diferenças (aproximação normal).</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Não exige normalidade; usa a ordem das diferenças, não seus valores.</p></div>
-        <div><h4>Exemplo simples</h4><p>Escores de dor antes/depois, quando a normalidade é duvidosa.</p></div>
+        <div><h4>Exemplo simples</h4><p>Teste de postos sinalizados de Wilcoxon para amostras pareadas (antes vs depois) sem pressuposto de normalidade.</p></div>
       </div>
     </section>
     <section class="card">
@@ -32,6 +32,14 @@
       <p>Dados pareados ordinais ou não normais.</p>
       <h3>Referências</h3>
       <p class="refs">• Wilcoxon, F. (1945). Individual comparisons by ranking methods. <em>Biometrics Bulletin</em>, 1(6), 80–83.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+x <- c(200, 212, 190, 215, 220, 198, 205)
+y <- c(195, 205, 185, 210, 212, 190, 200)
+wilcox.test(x, y, paired=TRUE)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

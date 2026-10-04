@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Calcula Q1, Q2 (mediana), Q3 e o intervalo interquartil por interpolação linear.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Base do boxplot e da detecção de outliers; descreve a dispersão de forma robusta.</p></div>
-        <div><h4>Exemplo simples</h4><p>Se Q1=10 e Q3=20, o IIQ=10 concentra os 50% centrais.</p></div>
+        <div><h4>Exemplo simples</h4><p>Percentual de ingressantes de escola pública entre 2001 e 2012 (Louzada et al., 2026, p. 68): 45.8, 45.4, 41.1, 37.2, 38.3, 33.6, 33.1, 34.07, 32.14, 31.83, 27.91, 27.17. Q1 = 32.08%, Q2 = 33.84%, Q3 = 39.00%.</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,7 +31,14 @@
       <h3>Quando usar</h3>
       <p>Resumos robustos, comparação de distribuições e identificação de valores atípicos.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Medidas de Posição e Variabilidade (p. 49–67).</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+publica <- c(45.8, 45.4, 41.1, 37.2, 38.3, 33.6, 33.1, 34.07, 32.14, 31.83, 27.91, 27.17)
+quantile(publica, probs=c(0.25, 0.5, 0.75))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>

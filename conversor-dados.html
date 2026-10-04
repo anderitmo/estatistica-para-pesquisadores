@@ -21,7 +21,7 @@
       <div class="help-grid">
         <div><h4>O que calcula</h4><p>Lê dados colados e devolve uma matriz limpa e uma tabela Markdown.</p></div>
         <div><h4>Contribuição acadêmica</h4><p>Facilita a preparação de dados antes de usar as demais calculadoras.</p></div>
-        <div><h4>Exemplo simples</h4><p>Colar uma tabela do Excel e padronizar separadores.</p></div>
+        <div><h4>Exemplo simples</h4><p>Conversão de texto livre em matriz organizada de linhas e colunas para posterior carregamento e processamento no R (Louzada et al., 2026, p. 227).</p></div>
       </div>
     </section>
     <section class="card">
@@ -31,12 +31,20 @@
       <h3>Quando usar</h3>
       <p>Limpeza rápida de dados colados de planilhas ou texto.</p>
       <h3>Referências</h3>
-      <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Conceitos e Aplicações (p. 15–28).<br>• Sukamolson, S. (2007). Fundamentals of quantitative research. <em>Language Institute, Chulalongkorn University</em>, 1–20.</p>
+      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
     </section>
     <section class="card flow-note">
       <h3>Calculadoras relacionadas e fluxo de dados</h3>
       <p>Estas calculadoras se conectam a esta — para preparar dados de entrada ou aprofundar a análise:</p>
       <ul class="flow-list"><li><a href="matriz-correlacao.html">Matriz de Correlação</a> — use a matriz padronizada em análises multivariadas</li><li><a href="anova.html">ANOVA</a> — reaproveite as linhas como grupos</li></ul>
+    </section>
+        <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+texto <- '1 2 3\n4 5 6'
+dados <- as.matrix(read.table(text=texto))
+print(dados)</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>
