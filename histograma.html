@@ -29,9 +29,9 @@
       <h3>Fórmula central</h3>
       <span class="formula block">barras contíguas: altura ∝ frequência da classe</span>
       <h3>Quando usar</h3>
-      <p>Explorar a forma de variáveis contínuas e avaliar normalidade visualmente.</p>
+      <p>Utilize o histograma para visualizar graficamente a forma da distribuição, o centro, a dispersão e a simetria de variáveis quantitativas contínuas. É a ferramenta gráfica fundamental na análise exploratória inicial para identificar potenciais padrões normais ou bimodais nos dados.</p>
       <h3>Referências</h3>
-      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
     </section>
     <section class="card flow-note">
       <h3>Calculadoras relacionadas e fluxo de dados</h3>
@@ -41,7 +41,8 @@
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre><code>%%R
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Histograma do peso (g) de 80 ratos de laboratório (Louzada et al., 2026, p. 64)
 x <- c(241, 228, 126, 259, 206, 201, 233, 151, 197, 165)
 hist(x, xlab='Peso (g)', ylab='Frequência absoluta', col='red')</code></pre>
     </section>
@@ -54,7 +55,7 @@ hist(x, xlab='Peso (g)', ylab='Frequência absoluta', col='red')</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

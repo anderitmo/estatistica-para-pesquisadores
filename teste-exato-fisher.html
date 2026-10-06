@@ -29,14 +29,15 @@
       <h3>Fórmula central</h3>
       <span class="formula block">p = [ (a+b)! (c+d)! (a+c)! (b+d)! ] / [ a! b! c! d! n! ]</span>
       <h3>Quando usar</h3>
-      <p>Tabelas de contingência 2x2 com amostras pequenas, onde uma ou mais células possuem frequências esperadas menores que 5.</p>
+      <p>Utilize o Teste Exato de Fisher para analisar tabelas de contingência 2x2 com amostras pequenas ou com frequências esperadas reduzidas (<5), nas quais a aproximação assintótica da distribuição Qui-Quadrado perde validade.</p>
       <h3>Referências</h3>
       <p class="refs">• Fisher, R. A. (1922). On the interpretation of chi-square from contingency tables, and the calculation of P. <em>Journal of the Royal Statistical Society</em>, 85, 87-94.</p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre><code>%%R
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Teste exato de Fisher para tabela 2x2 com frequências pequenas
 tab <- matrix(c(2, 8, 9, 3), nrow=2, byrow=TRUE)
 fisher.test(tab)</code></pre>
     </section>
@@ -48,7 +49,7 @@ fisher.test(tab)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

@@ -29,17 +29,16 @@
       <h3>Fórmula central</h3>
       <span class="formula block">H = [12/(N(N+1))] Σ Rⱼ²/nⱼ − 3(N+1)</span>
       <h3>Quando usar</h3>
-      <p>≥3 grupos independentes, dados ordinais ou não normais.</p>
+      <p>Utilize o Teste de Kruskal-Wallis como alternativa não paramétrica à ANOVA de 1 fator para comparar três ou mais grupos independentes em variáveis ordinais ou com distribuições assimétricas.</p>
       <h3>Referências</h3>
       <p class="refs">• Kruskal, W. H., & Wallis, W. A. (1952). Use of ranks in one-criterion variance analysis. <em>JASA</em>, 47(260), 583–621.</p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre><code>%%R
-g1 <- c(1, 2, 3)
-g2 <- c(4, 5, 6)
-g3 <- c(7, 8, 9)
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Teste não paramétrico de Kruskal-Wallis para 3 grupos
+g1 <- c(1, 2, 3); g2 <- c(4, 5, 6); g3 <- c(7, 8, 9)
 kruskal.test(list(g1, g2, g3))</code></pre>
     </section>
     <section class="card">
@@ -50,7 +49,7 @@ kruskal.test(list(g1, g2, g3))</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

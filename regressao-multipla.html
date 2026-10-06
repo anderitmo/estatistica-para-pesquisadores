@@ -29,19 +29,17 @@
       <h3>Fórmula central</h3>
       <span class="formula block">Y = β₀ + β₁X₁ + … + βₚXₚ</span>
       <h3>Quando usar</h3>
-      <p>Um Y quantitativo e múltiplos preditores; cuidar de colinearidade.</p>
+      <p>Utilize a Regressão Múltipla para modelar a relação entre uma variável resposta contínua (Y) e dois ou mais preditores independentes (X1, X2, ...), permitindo avaliar o efeito isolado de cada variável ajustado pelas demais.</p>
       <h3>Referências</h3>
       <p class="refs">• Guimarães, P. R. B. (2008). <em>Métodos Quantitativos Estatísticos</em>. Curitiba: IESDE Brasil. Cap. Análise de Regressão (p. 189–200).</p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre><code>%%R
-x1 <- c(1, 2, 3, 4, 5)
-x2 <- c(2, 1, 4, 3, 6)
-y  <- c(3, 2, 7, 6, 11)
-mod <- lm(y ~ x1 + x2)
-summary(mod)</code></pre>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Ajuste de regressão linear múltipla Y ~ X1 + X2
+x1 <- c(1, 2, 3, 4, 5); x2 <- c(2, 1, 4, 3, 6); y <- c(3, 2, 7, 6, 11)
+summary(lm(y ~ x1 + x2))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>
@@ -51,7 +49,7 @@ summary(mod)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

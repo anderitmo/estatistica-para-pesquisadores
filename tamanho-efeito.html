@@ -29,15 +29,16 @@
       <h3>Fórmula central</h3>
       <span class="formula block">d = |x̄₁ − x̄₂| / s_pooled &nbsp;&nbsp;·&nbsp;&nbsp; η² = SQEntre / SQTotal</span>
       <h3>Quando usar</h3>
-      <p>Sempre que reportar resultados de testes de significância (testes t e ANOVA) para embasar discussões científicas e de validade aplicada.</p>
+      <p>Utilize o cálculo do Tamanho do Efeito (como d de Cohen ou Eta-quadrado) para quantificar a magnitude prática do efeito encontrado em testes de hipóteses, de forma independente do tamanho da amostra.</p>
       <h3>Referências</h3>
       <p class="refs">• Cohen, J. (1988). <em>Statistical Power Analysis for the Behavioral Sciences</em> (2ª ed.). Lawrence Erlbaum.<br>• IJMRA. (2023). An Overview of Quantitative Research Methods. <em>International Journal of Multidisciplinary Research and Analysis</em>, 06(08), 3794–3803.</p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre><code>%%R
-# d de Cohen no R:
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Cálculo do d de Cohen para 2 amostras independentes
+# m1=15, sd1=3, m2=12, sd2=4
 # (m1 - m2) / sqrt(((sd1^2) + (sd2^2)) / 2)</code></pre>
     </section>
     <section class="card">
@@ -48,7 +49,7 @@
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

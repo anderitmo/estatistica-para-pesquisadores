@@ -29,9 +29,9 @@
       <h3>Fórmula central</h3>
       <span class="formula block">χ² = Σ (O − E)² / E</span>
       <h3>Quando usar</h3>
-      <p>Variáveis categóricas; frequências esperadas idealmente ≥ 5 por célula.</p>
+      <p>Aplique o teste Qui-Quadrado de Independência para avaliar se existe uma associação estatisticamente significativa entre duas variáveis categóricas (qualitativas) organizadas em uma tabela de contingência.</p>
       <h3>Referências</h3>
-      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
     </section>
     <section class="card flow-note">
       <h3>Calculadoras relacionadas e fluxo de dados</h3>
@@ -41,7 +41,8 @@
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
-      <pre><code>%%R
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Teste qui-quadrado de independência para tabela 2x2 (Louzada et al., 2026, p. 63)
 tab <- matrix(c(18, 12, 7, 23), nrow=2, byrow=TRUE)
 chisq.test(tab, correct=FALSE)</code></pre>
     </section>
@@ -54,7 +55,7 @@ chisq.test(tab, correct=FALSE)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

@@ -6,7 +6,7 @@ Site estático de **47 calculadoras estatísticas** que rodam **100% no navegado
 
 A fundamentação teórica, exemplos práticos e sintaxe de códigos em R foram referenciados a partir do livro:
 
-> **Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026).** *Estatística Básica com Suporte Computacional*. São Carlos: Edição dos Autores. ISBN 978-65-02-13968-4.
+> [**Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026).** *Estatística Básica com Suporte Computacional*. São Carlos: Edição dos Autores. ISBN 978-65-02-13968-4.](https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/)
 
 O material original do livro encontra-se disponível no diretório `bibliografia/Livro-Estatistica-Basica-R-Portugues.pdf`.
 
