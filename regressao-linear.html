@@ -29,18 +29,18 @@
       <h3>Fórmula central</h3>
       <span class="formula block">Y = a + bX (mínimos quadrados)</span>
       <h3>Quando usar</h3>
-      <p>Relação linear entre duas quantitativas; resíduos bem-comportados.</p>
+      <p>Aplique a Regressão Linear Simples quando quiser modelar e prever o valor de uma variável resposta contínua (Y) com base na variação de uma única variável explicativa (X) via o método dos Mínimos Quadrados Ordinários (MQO).</p>
       <h3>Referências</h3>
-      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Ajuste de modelo de regressão linear simples Y = a + bX (Louzada et al., 2026, p. 224)
 x <- c(2, 4, 6, 8)
 y <- c(25, 30, 35, 40)
-mod <- lm(y ~ x)
-summary(mod)</code></pre>
+summary(lm(y ~ x))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>
@@ -50,7 +50,7 @@ summary(mod)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

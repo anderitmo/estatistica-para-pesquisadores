@@ -29,16 +29,16 @@
       <h3>Fórmula central</h3>
       <span class="formula block">valor de maior frequência</span>
       <h3>Quando usar</h3>
-      <p>Variáveis categóricas/nominais ou para detectar concentração e multimodalidade.</p>
+      <p>A moda é indicada para identificar a categoria ou o valor com maior frequência de ocorrência em um conjunto de dados. É especialmente útil para variáveis qualitativas (nominais ou ordinais) e em análises de mercado/comerciais (como produto mais vendido ou diagnóstico mais comum). Em variáveis contínuas, é comum utilizar o valor modal após o agrupamento dos dados em classes de frequência.</p>
       <h3>Referências</h3>
-      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Frequência das observações de temperaturas (Louzada et al., 2026, p. 77)
 x <- c(41, 34, 41, 44, 41, 37, 40)
-# Função para calcular a moda no R:
 names(which.max(table(x)))</code></pre>
     </section>
     <section class="card">
@@ -49,7 +49,7 @@ names(which.max(table(x)))</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

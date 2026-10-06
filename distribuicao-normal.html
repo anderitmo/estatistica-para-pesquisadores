@@ -29,15 +29,15 @@
       <h3>Fórmula central</h3>
       <span class="formula block">z = (x − μ) / σ ;  Φ(z) = P(Z ≤ z)</span>
       <h3>Quando usar</h3>
-      <p>Fenômenos aproximadamente normais e cálculo de probabilidades/áreas sob a curva.</p>
+      <p>Utilize a distribuição Normal quando a variável de interesse for contínua e simétrica ao redor de uma média central (μ), com dispersão definida pelo desvio padrão (σ). É o modelo probabilístico mais importante da estatística, servindo de base para inferências e testes de hipóteses.</p>
       <h3>Referências</h3>
-      <p class="refs">• Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</p>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
     </section>
         <section class="card">
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
-# P(X > 190) com mu=172 e sigma=5
+# Exemplo: Probabilidade P(X > 190) para estatura com mu=172 e sigma=5 (Louzada et al., 2026, p. 53)
 1 - pnorm(190, mean=172, sd=5)</code></pre>
     </section>
     <section class="card">
@@ -48,7 +48,7 @@
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

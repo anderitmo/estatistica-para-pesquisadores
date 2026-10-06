@@ -29,7 +29,7 @@
       <h3>Fórmula central</h3>
       <span class="formula block">W = menor soma de postos com sinal</span>
       <h3>Quando usar</h3>
-      <p>Dados pareados ordinais ou não normais.</p>
+      <p>Utilize o Teste de Wilcoxon para comparar duas amostras pareadas (relacionadas) quando os dados forem medidos em escala ordinal ou violarem o pressuposto de normalidade exigido pelo teste t pareado.</p>
       <h3>Referências</h3>
       <p class="refs">• Wilcoxon, F. (1945). Individual comparisons by ranking methods. <em>Biometrics Bulletin</em>, 1(6), 80–83.</p>
     </section>
@@ -37,6 +37,7 @@
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Teste não paramétrico de Wilcoxon para dados pareados
 x <- c(200, 212, 190, 215, 220, 198, 205)
 y <- c(195, 205, 185, 210, 212, 190, 200)
 wilcox.test(x, y, paired=TRUE)</code></pre>
@@ -49,7 +50,7 @@ wilcox.test(x, y, paired=TRUE)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

@@ -29,7 +29,7 @@
       <h3>Fórmula central</h3>
       <span class="formula block">α = [k/(k−1)] · (1 − Σσ²ᵢ / σ²_total)</span>
       <h3>Quando usar</h3>
-      <p>Escalas com múltiplos itens no mesmo construto. <strong>Atenção:</strong> o α pressupõe tau-equivalência e tende a subestimar a confiabilidade quando as cargas dos itens diferem; alternativas recomendadas incluem o ômega de McDonald (ω) e o GLB.</p>
+      <p>Utilize o Alfa de Cronbach para estimar a consistência interna e confiabilidade de questionários, escalas e instrumentos psicométricos compostos por múltiplos itens alinhados.</p>
       <h3>Referências</h3>
       <p class="refs">• Cronbach, L. J. (1951). Coefficient alpha and the internal structure of tests. <em>Psychometrika</em>, 16(3), 297–334.<br>• Sijtsma, K. (2009). On the use, the misuse, and the very limited usefulness of Cronbach's alpha. <em>Psychometrika</em>, 74(1), 107–120.<br>• McDonald, R. P. (1999). <em>Test Theory: A Unified Treatment</em>. Erlbaum.</p>
     </section>
@@ -37,7 +37,7 @@
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
-# Requer pacote psych:
+# Exemplo: Avaliação da consistência interna em R (requer pacote psych)
 # library(psych)
 # mat <- matrix(c(4,3,5,4, 5,5,4,5, 2,3,2,3, 4,4,4,5), nrow=4, byrow=TRUE)
 # alpha(mat)</code></pre>
@@ -50,7 +50,7 @@
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

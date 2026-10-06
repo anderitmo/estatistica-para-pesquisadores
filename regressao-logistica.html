@@ -29,7 +29,7 @@
       <h3>Fórmula central</h3>
       <span class="formula block">logit(p) = β₀ + β₁X₁ + … ;  OR = e^β</span>
       <h3>Quando usar</h3>
-      <p>Variável resposta binária e preditores quantitativos/categóricos.</p>
+      <p>Aplique a Regressão Logística quando a variável dependente (resposta) for binária ou dicotômica (0/1; sim/não) e você desejar estimar a probabilidade do evento e calcular as Razões de Chances (Odds Ratios - OR) dos preditores.</p>
       <h3>Referências</h3>
       <p class="refs">• Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). <em>Applied Logistic Regression</em> (3ª ed.). Wiley.</p>
     </section>
@@ -37,10 +37,10 @@
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Ajuste de modelo de regressão logística binária Y ~ X
 x <- c(0.5, 1.75, 2.75, 3.5, 4.5)
 y <- c(0, 1, 1, 0, 1)
-mod <- glm(y ~ x, family=binomial)
-summary(mod)</code></pre>
+summary(glm(y ~ x, family=binomial))</code></pre>
     </section>
     <section class="card">
       <div class="sep-banner" id="sep-banner"></div>
@@ -50,7 +50,7 @@ summary(mod)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

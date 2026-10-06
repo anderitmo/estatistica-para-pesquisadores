@@ -29,7 +29,7 @@
       <h3>Fórmula central</h3>
       <span class="formula block">autovalores/autovetores da matriz de correlação</span>
       <h3>Quando usar</h3>
-      <p>Muitas variáveis quantitativas correlacionadas; pré-processamento e visualização.</p>
+      <p>Utilize a Análise de Componentes Principais (PCA) para reduzir a dimensionalidade de conjuntos de dados multivariados com muitas variáveis correlacionadas, transformando-as em novos componentes ortogonais não correlacionados.</p>
       <h3>Referências</h3>
       <p class="refs">• Hotelling, H. (1933). Analysis of a complex of statistical variables into principal components. <em>Journal of Educational Psychology</em>, 24, 417–441.<br>• Jolliffe, I. T. (2002). <em>Principal Component Analysis</em> (2ª ed.). Springer.</p>
     </section>
@@ -37,6 +37,7 @@
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Análise de componentes principais (PCA) em dados padronizados
 mat <- matrix(c(1,2,5, 2,4,3, 3,6,8, 4,8,1, 5,10,9), ncol=3, byrow=TRUE)
 prcomp(mat, scale.=TRUE)</code></pre>
     </section>
@@ -48,7 +49,7 @@ prcomp(mat, scale.=TRUE)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

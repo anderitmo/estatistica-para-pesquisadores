@@ -29,7 +29,7 @@
       <h3>Fórmula central</h3>
       <span class="formula block">U = postos − n(n+1)/2</span>
       <h3>Quando usar</h3>
-      <p>Dois grupos independentes, dados ordinais ou não normais.</p>
+      <p>Aplique o Teste de Mann-Whitney (ou Wilcoxon-Mann-Whitney) para comparar as distribuições de duas amostras independentes quando a variável não atender à suposição de normalidade do teste t.</p>
       <h3>Referências</h3>
       <p class="refs">• Mann, H. B., & Whitney, D. R. (1947). On a test of whether one of two random variables is stochastically larger. <em>Annals of Mathematical Statistics</em>, 18(1), 50–60.</p>
     </section>
@@ -37,8 +37,8 @@
       <h2>Instruções para Linguagem R</h2>
       <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a> (utilizando <code>%load_ext rpy2.ipython</code> e <code>%%R</code>):</p>
       <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
-x <- c(1, 2, 3, 4, 5)
-y <- c(6, 7, 8, 9, 10)
+# Exemplo: Teste de Mann-Whitney para 2 amostras independentes
+x <- c(1, 2, 3, 4, 5); y <- c(6, 7, 8, 9, 10)
 wilcox.test(x, y, paired=FALSE)</code></pre>
     </section>
     <section class="card">
@@ -49,7 +49,7 @@ wilcox.test(x, y, paired=FALSE)</code></pre>
       <div class="md-block">
         <h3>Saída Markdown</h3>
         <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
-        <div><button class="btn secondary" id="copiar-md">Copiar Markdown</button></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
       </div>
     </section>
   </main>

@@ -210,6 +210,20 @@
     else { ta.select(); document.execCommand("copy"); done(); }
   }
 
+  function vizMd() {
+    var ta = document.getElementById("md-out");
+    if (!ta || !ta.value) { toast("Calcule primeiro para gerar o Markdown"); return; }
+    var url = "https://anderitmo.github.io/visualizador-md-com-post/?md=" + encodeURIComponent(ta.value);
+    window.open(url, "_blank");
+  }
+
+  function dlMd() {
+    var ta = document.getElementById("md-out");
+    if (!ta || !ta.value) { toast("Calcule primeiro para gerar o Markdown"); return; }
+    var url = "https://anderitmo.github.io/visualizador-md-com-post/?md=" + encodeURIComponent(ta.value) + "&download=true";
+    window.open(url, "_blank");
+  }
+
   var _tt;
   function toast(msg) {
     var t = document.getElementById("toast");
@@ -238,6 +252,12 @@
     if (btn) btn.addEventListener("click", run);
     var cp = document.getElementById("copiar-md");
     if (cp) cp.addEventListener("click", copyMd);
+
+    var vizBtn = document.getElementById("visualizar-md");
+    if (vizBtn) vizBtn.addEventListener("click", vizMd);
+
+    var dlBtn = document.getElementById("download-md");
+    if (dlBtn) dlBtn.addEventListener("click", dlMd);
     global._recalc = function () {
       var box = document.getElementById("resultado");
       if (box && box.dataset.calculado === "1") run();

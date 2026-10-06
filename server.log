@@ -20,3 +20,13 @@
 127.0.0.1 - - [04/Oct/2026 04:50:40] "GET /js/app.js HTTP/1.1" 200 -
 127.0.0.1 - - [04/Oct/2026 04:50:43] "GET /instrucoes-r-colab.html HTTP/1.1" 200 -
 127.0.0.1 - - [04/Oct/2026 04:50:43] "GET /js/calculators.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /media-aritmetica.html HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /css/estilo.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /js/stats_extra.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /js/calculators.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /js/stats.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] code 404, message File not found
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /js/vendor/jstat.min.js HTTP/1.1" 404 -
+127.0.0.1 - - [06/Oct/2026 00:10:12] "GET /js/utils.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Oct/2026 00:10:16] "GET /instrucoes-r-colab.html HTTP/1.1" 200 -
