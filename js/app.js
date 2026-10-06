@@ -11,7 +11,7 @@
   var GROUPS = [
     ["Estatística Descritiva", [
       ["media-aritmetica","Média Aritmética"],["media-geometrica-harmonica","Média Geométrica e Harmônica"],["mediana","Mediana"],["moda","Moda"],
-      ["desvio-padrao","Desvio Padrão"],["variancia","Variância"],["quartis","Quartis"],
+      ["desvio-padrao","Desvio Padrão"],["desvio-medio","Desvio Médio Absoluto"],["variancia","Variância"],["quartis","Quartis"],
       ["amplitude","Amplitude"],["coeficiente-variacao","Coeficiente de Variação"],
       ["assimetria-curtose","Assimetria e Curtose"],["tabela-frequencias","Tabela de Frequências"],
       ["histograma","Histograma"],["boxplot","Boxplot"],
@@ -21,13 +21,14 @@
       ["distribuicao-normal","Distribuição Normal (Z)"],["distribuicao-binomial","Distribuição Binomial"],
       ["distribuicao-poisson","Distribuição de Poisson"],["distribuicao-t","Distribuição t de Student"],
       ["distribuicao-qui","Distribuição Qui-Quadrado"],["distribuicao-f","Distribuição F de Snedecor"],
+      ["fator-correcao-populacao-finita","Fator de Correção (População Finita)"],
       ["tabela-normal","Tabela Normal (Z)"],["gerador-aleatorios","Gerador de Números Aleatórios"],
     ]],
     ["Inferência", [
-      ["intervalo-confianca-media","Intervalo de Confiança (Média)"],["tamanho-amostra","Tamanho de Amostra"],
+      ["intervalo-confianca-media","Intervalo de Confiança (Média)"],["variancia-populacional","Variância Populacional"],["tamanho-amostra","Tamanho de Amostra"],
       ["teste-t-1amostra","Teste t (1 Amostra)"],["teste-t-2amostras","Teste t (2 Amostras)"],
-      ["teste-t-pareado","Teste t Pareado"],["qui-quadrado","Qui-Quadrado"],["anova","ANOVA (1 Fator)"],
-      ["correlacao-pearson","Correlação de Pearson"],["regressao-linear","Regressão Linear Simples"],
+      ["teste-t-pareado","Teste t Pareado"],["qui-quadrado","Qui-Quadrado"],["anova","ANOVA (1 Fator)"],["anova-dois-fatores","ANOVA (2 Fatores)"],
+      ["correlacao-pearson","Correlação de Pearson"],["regressao-linear","Regressão Linear Simples"],["residuos-regressao","Análise de Resíduos (Regressão)"],
       ["regressao-logistica","Regressão Logística"],
       ["teste-normalidade","Teste de Normalidade"],["teste-homocedasticidade","Teste de Homocedasticidade"],
       ["teste-exato-fisher","Teste Exato de Fisher"],["testes-z-proporcoes","Testes Z para Proporções"],
