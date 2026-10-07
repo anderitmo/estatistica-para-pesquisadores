@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variância Populacional — Calculadoras para Pesquisadores</title>
+<meta name="description" content="Intervalo de confiança e teste de hipóteses para a variância e desvio padrão populacionais.">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header class="page-header"><div class="wrap">
+  <p class="eyebrow"><a href="index.html">← Estatística para Pesquisadores</a></p>
+  <h1>Variância Populacional</h1>
+  <p class="subtitle">Intervalo de confiança e teste de hipóteses para a variância (σ²) e desvio padrão (σ).</p>
+</div></header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <section class="card">
+      <h2>Como este cálculo ajuda</h2>
+      <div class="help-grid">
+        <div><h4>O que calcula</h4><p>Calcula o Intervalo de Confiança para a variância populacional σ² (e σ) e realiza o teste de hipóteses H₀: σ² = σ²₀ baseado na distribuição Qui-Quadrado (χ²).</p></div>
+        <div><h4>Contribuição acadêmica</h4><p>Permite estimar a variabilidade e a precisão em processos populacionais e testar se a variância amostral difere significativamente de um valor de referência.</p></div>
+        <div><h4>Exemplo simples</h4><p>Pesos de 10 ratos de laboratório (Louzada et al., 2026, Cap. 5, p. 146). Variância amostral s² = 1703,11 g². O IC 95% para σ² é [808,61 ; 5220,13].</p></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Método, uso e referência</h2>
+      <h3>Fórmula central</h3>
+      <span class="formula block">χ² = (n − 1) · s² / σ² &nbsp;|&nbsp; IC 95%: [ (n−1)s² / χ²_superior ; (n−1)s² / χ²_inferior ]</span>
+      <h3>Quando usar</h3>
+      <p>Utilize esta calculadora quando o foco do estudo for inferir a variabilidade (dispersão) da população a partir de uma amostra. Requer o pressuposto de que os dados sigam uma distribuição Normal.</p>
+      <h3>Referências</h3>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
+    </section>
+    <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a>:</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Variância de 10 ratos (Louzada et al., 2026, p. 146)
+x <- c(241, 228, 126, 259, 206, 201, 233, 151, 197, 165)
+n <- length(x); s2 <- var(x)
+alpha <- 0.05
+ic_var <- c((n-1)*s2 / qchisq(1-alpha/2, n-1), (n-1)*s2 / qchisq(alpha/2, n-1))
+ic_var</code></pre>
+    </section>
+    <section class="card">
+      <div class="sep-banner" id="sep-banner"></div>
+      <div id="campos"></div>
+      <button class="btn" id="calcular">Calcular</button>
+      <div id="resultado"></div>
+      <div class="md-block">
+        <h3>Saída Markdown</h3>
+        <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
+      </div>
+    </section>
+  </main>
+</div>
+<footer class="page-footer">
+  <strong>Sem login e sem envio dos dados informados.</strong>
+  Todos os cálculos ocorrem no seu navegador (JavaScript). Núcleo estatístico validado contra tabelas, R/SciPy e jStat.
+  &nbsp;·&nbsp; Conteúdo educacional; verifique resultados críticos em fonte oficial.
+</footer>
+<script src="js/utils.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/stats_extra.js"></script>
+<script src="js/vendor/jstat.min.js"></script>
+<script src="js/calculators.js"></script>
+<script src="js/app.js"></script>
+<script>App.mountCalculator('variancia-populacional');</script>
+</body>
+</html>

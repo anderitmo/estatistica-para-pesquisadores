@@ -789,6 +789,151 @@
     }
   };
 
+  R["desvio-medio"] = {
+    inputs: [{ id: "dados", label: "Números", type: "numbers", default: "241; 228; 126; 259; 206; 201; 233; 151; 197; 165", placeholder: "Ex.: 241; 228; 126; 259; 206" }],
+    compute: function (v) {
+      var d = v.dados; need(d, 1);
+      var r = Extra.meanAbsoluteDeviation(d);
+      var stats = [
+        ["Desvio médio absoluto", f(r.mad)],
+        ["Média", f(r.mean)],
+        ["Soma dos desvios absolutos", f(r.sumAbs)],
+        ["Quantidade (n)", String(r.n)]
+      ];
+      return { stats: stats, notes: ["Mede a dispersão média dos dados em relação à média aritmética sem elevar os desvios ao quadrado."], md: { title: "Desvio Médio Absoluto", lines: mdLines(stats) } };
+    }
+  };
+
+  R["variancia-populacional"] = {
+    inputs: [
+      { id: "dados", label: "Amostra de dados", type: "numbers", default: "241; 228; 126; 259; 206; 201; 233; 151; 197; 165", placeholder: "Ex.: 241; 228; 126; 259" },
+      { id: "sigma2_0", label: "Variância de referência (σ²₀ - opcional para teste)", type: "number", default: "2000" },
+      { id: "conf", label: "Nível de confiança", type: "select", default: "0.95", options: [["0.90", "90%"], ["0.95", "95%"], ["0.99", "99%"]] }
+    ],
+    compute: function (v) {
+      var d = v.dados; need(d, 2);
+      var sig0 = isFinite(v.sigma2_0) && v.sigma2_0 > 0 ? v.sigma2_0 : null;
+      var conf = parseFloat(v.conf);
+      var r = Extra.ciAndTestVariance(d, sig0, conf);
+      var stats = [
+        ["Variância amostral (s²)", f(r.s2)],
+        ["Desvio padrão amostral (s)", f(r.s)],
+        ["IC " + Math.round(conf * 100) + "% para Variância (σ²)", "[" + f(r.varLower) + " ; " + f(r.varUpper) + "]"],
+        ["IC " + Math.round(conf * 100) + "% para Desvio Padrão (σ)", "[" + f(r.sdLower) + " ; " + f(r.sdUpper) + "]"]
+      ];
+      if (r.chi2_stat !== null) {
+        stats.push(["Estatística χ²", f(r.chi2_stat)]);
+        stats.push(["gl", String(r.df)]);
+        stats.push(["p-valor (bilateral)", fp(r.pValue)]);
+        stats.push(["Decisão (α=0,05)", decide(r.pValue, 0.05)]);
+      }
+      return { stats: stats, notes: ["Intervalo de confiança e teste baseados na distribuição Qui-Quadrado (χ²). Pressupõe que a população seja normalmente distribuída."], md: { title: "Inferencia para Variancia Populacional", lines: mdLines(stats) } };
+    }
+  };
+
+  R["fator-correcao-populacao-finita"] = {
+    inputs: [
+      { id: "N", label: "Tamanho da população (N)", type: "int", default: "1000" },
+      { id: "n", label: "Tamanho da amostra (n)", type: "int", default: "100" },
+      { id: "s", label: "Desvio padrão da amostra (s)", type: "number", default: "15" }
+    ],
+    compute: function (v) {
+      var N = v.N, n = v.n, s = v.s;
+      if (!(N > 0) || !(n > 0) || !(s >= 0)) throw new Error("Informe N > 0, n > 0 e s ≥ 0.");
+      var r = Extra.finitePopulationCorrection(N, n, s);
+      var stats = [
+        ["Fator de Correção (FCP)", f(r.fpc, 4)],
+        ["Fração de amostragem (n/N)", f(r.fraction * 100, 2) + "%"],
+        ["Erro padrão sem FCP (s/√n)", f(r.seRaw)],
+        ["Erro padrão ajustado com FCP", f(r.seAdj)],
+        ["Nº total de amostras possíveis (C_n^N)", r.totalSamples < 1e12 ? String(Math.round(r.totalSamples)) : r.totalSamples.toExponential(4)]
+      ];
+      var note = r.fraction < 0.05 ? "A fração de amostragem n/N é menor que 5%, portanto a correção para população finita tem impacto negligenciável." : "Fração de amostragem n/N ≥ 5%: a correção para população finita reduz sensivelmente o erro padrão.";
+      return { stats: stats, notes: [note, "Fórmula FCP = √((N−n)/(N−1)). Aplicada quando a amostragem é sem reposição em populações finitas."], md: { title: "Fator de Correcao para Populações Finitas", lines: mdLines(stats) } };
+    }
+  };
+
+  R["anova-dois-fatores"] = {
+    inputs: [
+      { id: "dados", label: "Dados do experimento (Fator A ; Fator B ; Resposta Y)", type: "matrix", default: "A1; B1; 12\nA1; B1; 14\nA1; B2; 18\nA1; B2; 20\nA2; B1; 22\nA2; B1; 24\nA2; B2; 28\nA2; B2; 30", placeholder: "A1; B1; 12\nA1; B1; 14\nA1; B2; 18\nA1; B2; 20", hint: "Cada linha deve conter: Nível_FatorA ; Nível_FatorB ; Valor_Quantitativo." },
+      { id: "alfa", label: "Significância (α)", type: "select", default: "0.05", options: [["0.10", "0,10"], ["0.05", "0,05"], ["0.01", "0,01"]] }
+    ],
+    compute: function (v) {
+      var rows = v.dados.filter(function (r) { return r.length >= 3; });
+      if (rows.length < 4) throw new Error("Informe ao menos 4 observações (3 colunas por linha).");
+      var fA = rows.map(function (r) { return String(r[0]); });
+      var fB = rows.map(function (r) { return String(r[1]); });
+      var y = rows.map(function (r) { return parseFloat(r[2]); });
+      if (y.some(isNaN)) throw new Error("Os valores da resposta (3ª coluna) devem ser numéricos.");
+      var r = Extra.anovaTwoWay(fA, fB, y);
+      var al = parseFloat(v.alfa);
+
+      var stats = [
+        ["Fator A (níveis)", String(r.a)],
+        ["Fator B (níveis)", String(r.b)],
+        ["Repetições por célula (r)", String(r.r)],
+        ["Total de observações (N)", String(r.n)],
+        ["Decisão Fator A", decide(r.pA, al)],
+        ["Decisão Fator B", decide(r.pB, al)],
+        ["Decisão Interação A×B", decide(r.pAB, al)]
+      ];
+
+      var tab = {
+        caption: "Tabela ANOVA de Dois Fatores",
+        headers: ["Fonte de Variação", "SQ", "gl", "QM", "Estatística F", "p-valor"],
+        rows: [
+          ["Fator A", f(r.ssA, 3), String(r.dfA), f(r.msA, 3), f(r.FA, 3), fp(r.pA)],
+          ["Fator B", f(r.ssB, 3), String(r.dfB), f(r.msB, 3), f(r.FB, 3), fp(r.pB)],
+          ["Interação A×B", f(r.ssAB, 3), String(r.dfAB), f(r.msAB, 3), f(r.FAB, 3), fp(r.pAB)],
+          ["Resíduo (Erro)", f(r.ssError, 3), String(r.dfError), f(r.msError, 3), "—", "—"],
+          ["Total", f(r.ssTot, 3), String(r.dfTot), "—", "—", "—"]
+        ],
+        rowHeader: true
+      };
+
+      return { stats: stats, tables: [tab], notes: ["Pressupõe experimento fatorial balanceado com observações independentes e normais."], md: { title: "ANOVA com Dois Fatores Fixos", lines: mdLines(stats), extra: U_mdTable(["Fonte", "SQ", "gl", "QM", "F", "p-valor"], tab.rows) } };
+    }
+  };
+
+  R["residuos-regressao"] = {
+    inputs: [{ id: "pares", label: "Pares X;Y (um por linha)", type: "matrix", default: "1; 2,1\n2; 3,9\n3; 6,2\n4; 8,1\n5; 9,8", placeholder: "1; 2,1\n2; 3,9\n3; 6,2" }],
+    compute: function (v) {
+      var rows = v.pares.filter(function (r) { return r.length >= 2; });
+      if (rows.length < 3) throw new Error("Informe ao menos 3 pares.");
+      var x = rows.map(function (r) { return r[0]; });
+      var y = rows.map(function (r) { return r[1]; });
+      var r = Extra.regressionResiduals(x, y);
+
+      var stats = [
+        ["Média dos resíduos", f(r.meanResidual, 6)],
+        ["Maior resíduo absoluto", f(r.maxAbsResidual)],
+        ["Erro padrão dos resíduos (s_e)", f(Math.sqrt(r.reg.mse))],
+        ["R²", f(r.reg.r2)]
+      ];
+
+      var tableRows = [];
+      for (var i = 0; i < r.n; i++) {
+        tableRows.push([
+          String(i + 1),
+          f(x[i]),
+          f(y[i]),
+          f(r.fitted[i]),
+          f(r.residuals[i]),
+          f(r.stdResiduals[i], 3)
+        ]);
+      }
+
+      var tab = {
+        caption: "Tabela de Resíduos e Valores Ajustados",
+        headers: ["Obs", "X", "Y Observado", "Y Ajustado (Ŷ)", "Resíduo (e)", "Resíduo Padronizado"],
+        rows: tableRows,
+        rowHeader: false
+      };
+
+      return { stats: stats, tables: [tab], notes: ["Resíduo e_i = Y_i − Ŷ_i. Os resíduos padronizados ajudam a identificar possíveis outliers (|e_pad| > 2 ou 3)."], md: { title: "Análise de Resíduos da Regressão Linear", lines: mdLines(stats), extra: U_mdTable(["Obs", "X", "Y", "Ŷ", "Resíduo", "Res. Padronizado"], tableRows) } };
+    }
+  };
+
   /* tabela em Markdown (helper local) */
   function U_mdTable(headers, rows) {
     var md = "| " + headers.join(" | ") + " |\n|" + headers.map(function () { return "---"; }).join("|") + "|\n";

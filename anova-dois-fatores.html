@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANOVA (2 Fatores Fixos) — Calculadoras para Pesquisadores</title>
+<meta name="description" content="Análise de variância com dois fatores e efeito de interação em experimentos fatoriais balanceados.">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header class="page-header"><div class="wrap">
+  <p class="eyebrow"><a href="index.html">← Estatística para Pesquisadores</a></p>
+  <h1>ANOVA (2 Fatores Fixos)</h1>
+  <p class="subtitle">Análise de variância para avaliar dois fatores principais e a sua interação.</p>
+</div></header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <section class="card">
+      <h2>Como este cálculo ajuda</h2>
+      <div class="help-grid">
+        <div><h4>O que calcula</h4><p>Decompõe a variabilidade total do experimento nos efeitos dos Fatores A, B, da Interação A×B e do erro experimental (resíduo).</p></div>
+        <div><h4>Contribuição acadêmica</h4><p>Permite identificar se o efeito de uma variável depende do nível de outra (efeito de interação), essencial em experimentos fatoriais complexos.</p></div>
+        <div><h4>Exemplo simples</h4><p>Avaliação da produtividade agrícola (Y) sob 2 Adubos (A1, A2) e 2 Tipos de Solo (B1, B2) com 2 repetições por célula (Louzada et al., 2026, Cap. 7, p. 197).</p></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Método, uso e referência</h2>
+      <h3>Fórmulas centrais</h3>
+      <span class="formula block">F_A = QM_A / QM_Erro &nbsp;|&nbsp; F_B = QM_B / QM_Erro &nbsp;|&nbsp; F_AB = QM_AB / QM_Erro</span>
+      <h3>Quando usar</h3>
+      <p>Utilize a ANOVA com dois fatores fixos em experimentos fatoriais quando quiser avaliar simultaneamente o impacto de dois fatores categóricos e verificar se existe sinergia ou antagonismo entre eles (interação) sobre uma variável quantitativa contínua.</p>
+      <h3>Referências</h3>
+      <p class="refs">• <a href="https://cemeai.icmc.usp.br/pesquisadores-brasileiros-lancam-livro-gratuito-de-estatistica-basica-com-suporte-computacional-em-portugues-e-espanhol/" target="_blank" rel="noopener">Louzada, F., Ferreira, P. H., & Ramos, P. L. (2026). <em>Estatística Básica com Suporte Computacional</em>. São Carlos: Ed. dos Autores.</a></p>
+    </section>
+    <section class="card flow-note">
+      <h3>Calculadoras relacionadas e fluxo de dados</h3>
+      <p>Estas calculadoras se conectam a esta — para preparar dados de entrada ou aprofundar a análise:</p>
+      <ul class="flow-list"><li><a href="anova.html">ANOVA (1 Fator)</a> — quando há apenas um fator categórico em estudo</li></ul>
+    </section>
+    <section class="card">
+      <h2>Instruções para Linguagem R</h2>
+      <p>Você pode replicar estes mesmos cálculos no R ou executá-los gratuitamente na nuvem via <a href="instrucoes-r-colab.html">Google Colab</a>:</p>
+      <pre style="background:#272822;color:#f8f8f2;padding:1rem;border-radius:6px;overflow-x:auto"><code>%%R
+# Exemplo: Experimento Fatorial 2x2 (Louzada et al., 2026, p. 200)
+dados <- data.frame(
+  fatorA = factor(c('A1','A1','A1','A1','A2','A2','A2','A2')),
+  fatorB = factor(c('B1','B1','B2','B2','B1','B1','B2','B2')),
+  y = c(12, 14, 18, 20, 22, 24, 28, 30)
+)
+summary(aov(y ~ fatorA * fatorB, data = dados))</code></pre>
+    </section>
+    <section class="card">
+      <div class="sep-banner" id="sep-banner"></div>
+      <div class="howto"><strong>Como inserir os dados:</strong> Cole <strong>uma observação por linha</strong> com 3 colunas separadas por ponto e vírgula <code>;</code>: <code>Nível_FatorA ; Nível_FatorB ; Valor_Y</code>. O experimento deve ser balanceado (mesmo número de repetições r ≥ 2 por célula).</div>
+      <div id="campos"></div>
+      <button class="btn" id="calcular">Calcular</button>
+      <div id="resultado"></div>
+      <div class="md-block">
+        <h3>Saída Markdown</h3>
+        <textarea class="md-out" id="md-out" readonly placeholder="O resultado em Markdown aparecerá aqui após o cálculo."></textarea>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem"><button class="btn secondary" id="copiar-md">Copiar Markdown</button><button class="btn secondary" id="visualizar-md">Visualizar Markdown</button><button class="btn secondary" id="download-md">Download Markdown</button></div>
+      </div>
+    </section>
+  </main>
+</div>
+<footer class="page-footer">
+  <strong>Sem login e sem envio dos dados informados.</strong>
+  Todos os cálculos ocorrem no seu navegador (JavaScript). Núcleo estatístico validado contra tabelas, R/SciPy e jStat.
+  &nbsp;·&nbsp; Conteúdo educacional; verifique resultados críticos em fonte oficial.
+</footer>
+<script src="js/utils.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/stats_extra.js"></script>
+<script src="js/vendor/jstat.min.js"></script>
+<script src="js/calculators.js"></script>
+<script src="js/app.js"></script>
+<script>App.mountCalculator('anova-dois-fatores');</script>
+</body>
+</html>

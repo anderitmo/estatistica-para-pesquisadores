@@ -179,6 +179,232 @@
     });
   }
 
+  /* ---------------------------------------------------------------- *
+   * ANOVA com dois fatores fixos (Two-Way ANOVA - modelo balanceado).
+   * data: matriz [n_linhas][3] onde cada observação é [fatorA, fatorB, valor].
+   * Ou objeto com a: vetor fator A, b: vetor fator B, y: vetor resposta.
+   * ---------------------------------------------------------------- */
+  Extra.anovaTwoWay = function (factorA, factorB, y) {
+    var n = y.length;
+    if (factorA.length !== n || factorB.length !== n) {
+      throw new Error("Os vetores dos fatores e da resposta devem ter o mesmo tamanho.");
+    }
+    // Níveis dos fatores
+    var levelsA = Array.from(new Set(factorA)).sort();
+    var levelsB = Array.from(new Set(factorB)).sort();
+    var a = levelsA.length;
+    var b = levelsB.length;
+    if (a < 2 || b < 2) {
+      throw new Error("Cada fator deve conter pelo menos 2 níveis distintos.");
+    }
+
+    // Organiza por células (A_i, B_j)
+    var cells = {};
+    for (var i = 0; i < a; i++) {
+      for (var j = 0; j < b; j++) {
+        cells[levelsA[i] + "|||" + levelsB[j]] = [];
+      }
+    }
+    for (var k = 0; k < n; k++) {
+      var key = factorA[k] + "|||" + factorB[k];
+      if (!cells[key]) cells[key] = [];
+      cells[key].push(y[k]);
+    }
+
+    // Verifica balanceamento (mesmo n em todas as células)
+    var cellSizes = Object.keys(cells).map(function (k) { return cells[k].length; });
+    var r = cellSizes[0]; // repetições
+    if (r < 1 || !cellSizes.every(function (sz) { return sz === r; })) {
+      throw new Error("O cálculo de ANOVA de dois fatores requer um experimento balanceado (mesmo número de observações para cada combinação de níveis dos fatores).");
+    }
+
+    var grandMean = Stats.mean(y);
+    var ssTot = y.reduce(function (acc, val) { return acc + (val - grandMean) * (val - grandMean); }, 0);
+
+    // Totais e médias para Fator A
+    var ssA = 0;
+    for (var i = 0; i < a; i++) {
+      var subA = [];
+      for (var k = 0; k < n; k++) {
+        if (factorA[k] === levelsA[i]) subA.push(y[k]);
+      }
+      var meanA = Stats.mean(subA);
+      ssA += (b * r) * (meanA - grandMean) * (meanA - grandMean);
+    }
+
+    // Totais e médias para Fator B
+    var ssB = 0;
+    for (var j = 0; j < b; j++) {
+      var subB = [];
+      for (var k = 0; k < n; k++) {
+        if (factorB[k] === levelsB[j]) subB.push(y[k]);
+      }
+      var meanB = Stats.mean(subB);
+      ssB += (a * r) * (meanB - grandMean) * (meanB - grandMean);
+    }
+
+    // SS Células (Subgrupos)
+    var ssCells = 0;
+    Object.keys(cells).forEach(function (k) {
+      var cellMean = Stats.mean(cells[k]);
+      ssCells += r * (cellMean - grandMean) * (cellMean - grandMean);
+    });
+
+    var ssAB = ssCells - ssA - ssB;
+    if (ssAB < 0 && Math.abs(ssAB) < 1e-10) ssAB = 0;
+
+    var ssError = ssTot - ssCells;
+    if (ssError < 0 && Math.abs(ssError) < 1e-10) ssError = 0;
+
+    var dfA = a - 1;
+    var dfB = b - 1;
+    var dfAB = (a - 1) * (b - 1);
+    var dfError = a * b * (r - 1);
+    var dfTot = n - 1;
+
+    if (dfError <= 0) {
+      throw new Error("São necessárias pelo menos 2 repetições por combinação de tratamento (r ≥ 2) para estimar o erro experimental e o efeito de interação.");
+    }
+
+    var msA = ssA / dfA;
+    var msB = ssB / dfB;
+    var msAB = ssAB / dfAB;
+    var msError = ssError / dfError;
+
+    var FA = msA / msError;
+    var FB = msB / msError;
+    var FAB = msAB / msError;
+
+    var pA = 1 - Stats.fCDF(FA, dfA, dfError);
+    var pB = 1 - Stats.fCDF(FB, dfB, dfError);
+    var pAB = 1 - Stats.fCDF(FAB, dfAB, dfError);
+
+    return {
+      levelsA: levelsA, levelsB: levelsB, a: a, b: b, r: r, n: n,
+      ssA: ssA, ssB: ssB, ssAB: ssAB, ssError: ssError, ssTot: ssTot,
+      dfA: dfA, dfB: dfB, dfAB: dfAB, dfError: dfError, dfTot: dfTot,
+      msA: msA, msB: msB, msAB: msAB, msError: msError,
+      FA: FA, FB: FB, FAB: FAB,
+      pA: pA, pB: pB, pAB: pAB
+    };
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Desvio Médio Absoluto (MAD)
+   * ---------------------------------------------------------------- */
+  Extra.meanAbsoluteDeviation = function (data) {
+    if (!data || data.length === 0) throw new Error("Amostra vazia.");
+    var m = Stats.mean(data);
+    var sumAbs = data.reduce(function (acc, x) { return acc + Math.abs(x - m); }, 0);
+    return {
+      mad: sumAbs / data.length,
+      mean: m,
+      sumAbs: sumAbs,
+      n: data.length
+    };
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Intervalo de Confiança e Teste de Hipóteses para Variância Populacional (σ²)
+   * ---------------------------------------------------------------- */
+  Extra.ciAndTestVariance = function (data, sigma2_0, confLevel) {
+    var n = data.length;
+    if (n < 2) throw new Error("É necessária uma amostra de pelo menos n ≥ 2.");
+    var df = n - 1;
+    var s2 = Stats.variance(data, false);
+    var s = Math.sqrt(s2);
+
+    confLevel = confLevel || 0.95;
+    var alpha = 1 - confLevel;
+
+    // Quantis da distribuição Qui-Quadrado com n-1 gl
+    var chi2_lower = Stats.chi2Inv(alpha / 2, df);
+    var chi2_upper = Stats.chi2Inv(1 - alpha / 2, df);
+
+    // Intervalo de Confiança para σ²: [ (n-1)s² / χ²_{1-α/2} , (n-1)s² / χ²_{α/2} ]
+    var varLower = (df * s2) / chi2_upper;
+    var varUpper = (df * s2) / chi2_lower;
+
+    var sdLower = Math.sqrt(varLower);
+    var sdUpper = Math.sqrt(varUpper);
+
+    // Teste de Hipóteses H0: σ² = σ²_0
+    var chi2_stat = null, pValue = null;
+    if (sigma2_0 && sigma2_0 > 0) {
+      chi2_stat = (df * s2) / sigma2_0;
+      var cdf = Stats.chi2CDF(chi2_stat, df);
+      // p-valor bilateral
+      pValue = 2 * Math.min(cdf, 1 - cdf);
+      if (pValue > 1) pValue = 1;
+    }
+
+    return {
+      n: n, df: df, s2: s2, s: s,
+      confLevel: confLevel,
+      varLower: varLower, varUpper: varUpper,
+      sdLower: sdLower, sdUpper: sdUpper,
+      chi2_lower: chi2_lower, chi2_upper: chi2_upper,
+      sigma2_0: sigma2_0, chi2_stat: chi2_stat, pValue: pValue
+    };
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Fator de Correção para Populações Finitas e Erro-Padrão Ajustado
+   * ---------------------------------------------------------------- */
+  Extra.finitePopulationCorrection = function (N, n, s) {
+    if (N <= 0 || n <= 0) throw new Error("O tamanho da população (N) e da amostra (n) devem ser maiores que zero.");
+    if (n > N) throw new Error("O tamanho da amostra (n) não pode ser maior que o tamanho da população (N).");
+
+    var fpc = Math.sqrt((N - n) / (N - 1));
+    var seRaw = s / Math.sqrt(n);
+    var seAdj = seRaw * fpc;
+    var fraction = n / N;
+
+    // Número total de amostras possíveis C_n^N (combinação sem reposição)
+    var logComb = Stats.logGamma(N + 1) - Stats.logGamma(n + 1) - Stats.logGamma(N - n + 1);
+    var totalSamples = Math.exp(logComb);
+
+    return {
+      N: N, n: n, s: s,
+      fraction: fraction,
+      fpc: fpc,
+      seRaw: seRaw,
+      seAdj: seAdj,
+      totalSamples: totalSamples
+    };
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Análise de Resíduos de Regressão Linear Simples
+   * ---------------------------------------------------------------- */
+  Extra.regressionResiduals = function (x, y) {
+    var reg = Stats.linearRegression(x, y);
+    var n = x.length;
+    var residuals = [];
+    var fitted = [];
+    var stdResiduals = [];
+
+    var seRes = Math.sqrt(reg.mse);
+
+    for (var i = 0; i < n; i++) {
+      var yhat = reg.a + reg.b * x[i];
+      var res = y[i] - yhat;
+      fitted.push(yhat);
+      residuals.push(res);
+      stdResiduals.push(seRes > 0 ? res / seRes : 0);
+    }
+
+    return {
+      reg: reg,
+      n: n,
+      fitted: fitted,
+      residuals: residuals,
+      stdResiduals: stdResiduals,
+      meanResidual: Stats.mean(residuals),
+      maxAbsResidual: Math.max.apply(null, residuals.map(Math.abs))
+    };
+  };
+
   if (typeof module !== "undefined" && module.exports) module.exports = Extra;
   global.Extra = Extra;
 })(typeof window !== "undefined" ? window : globalThis);
